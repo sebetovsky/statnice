@@ -18,6 +18,106 @@
 \end{pozadavky}
 
 \subsection{Struktura kompilátoru a navazujících nástrojů (linkery, loadery, debuggery, knihovny, preprocesory).}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{i2/softwarove_inzenyrstvi/obrazky/Prekladac-cerna_skrinka.pdf}
+	\caption{Překladač jako černá skříňka.}
+	\label{pic:Prekladac-cerna_skrinka}
+\end{figure}
+\begin{definiceN}{Překladač}
+Mějme vstupní jazyk \(L_{in}\) generovaný gramatikou \(G_{in}\).
+Dále mějme výstupní jazyk \(L_{out}\) generovaný gramatikou \(G_{out}\) nebo přijímaný automatem \(A_{out}\).
+\emph{Překladač} je zobrazení \(L_{in} \to L_{out}\), kde \(\forall w_{in} \in L_{in} \exists w_{out} \in L_{out}\) a zároveň pro \(w_{in} \notin L_{in}\) zobrazení neexistuje.
+\end{definice}
+
+
+\subsubsection{Příklady užití technik překladačů}
+\begin{pitemize}
+	\item Zvýrazňování syntaxe v editorech,
+	\item pretty-printer,
+	\item statické kontroly kódu,
+	\item interpretery,
+	\item překladače modelovacích jazyků,
+	\item dotazovací jazyky (SQL).
+\end{pitemize}
+
+
+\subsubsection{Historie a srovnání metod tvorby a spouštění programů}
+Následující části jsou dobře rozkreslené na slajdech (od p. Bednárka) z C++.
+
+Nejdříve (~1940) se programovalo přímo v binárním kódu, tedy přesně v tom, čemu rozuměl procesor. Později (~1950) byl vymyšlen assembler, tedy jazyk, který zcela přesně popisoval co bude procesor dělat, ale v lidsky čitelnější podobě (do podoby čitelné procesorem se dostane jak jinak než překladačem). Také se v počítačích objevil operační systém, takže se nespouštěl přímo program, ale nejprve se spustil OS a ten teprve (pomocí loaderu) načetl do paměti program a spustil jej. Program tedy už nemusel být ve formátu, kterému rozumí přímo procesor, ale mohl být obalen dalšími informacemi, které rozpoznával a zpracovával operační systém. Potom se objevily jazyky na vyšší úrovni, které se do spustitelného souboru kompilovaly a tyto jazyky byly vyšší a vyšší.
+
+Další možností spouštění programů je jejich interpretace, tedy vlastně spojení kompilace a spouštění. Program je řádku po řádce parsován a prováděn. Běh takového programu je však pomalý, což se dá vyřešit tak, že program se nejprve (při spouštění) přeloží do mezikódu a ten je teprve interpretován (mezikód je přinejmenším menší). Překlad se ale dělá při každém spuštění, což je neefektivní. Překlad (do mezikódu) se může udělat jen jednou a vytvořit tak jakýsi soubor spustitelný pomocí interpretru. Výhodou (oproti klasickému překladu přímo do binární podoby, které rozumí CPU) je platformní nezávislost mezikódu. Stačí aby pro daný procesor existoval interpret a je možné mezikód na tomto procesoru spustit. Opět se však potýkáme s neefektivitou interpretace mezikódu. Jako řešení byl vymyšlen tzv. JIT (Just in time compiler), který mezikód za běhu programu překládá do strojového kódu a ten teprve spouští. Výhodou je, že pokud se nějaká část programu provádí znovu, tak ji stačí jen spustit a už není potřeba mezikód.
+
+Poznámka: Dnešní překladače již většinou vygenerují optimálnější kód než by člověk dokázal napsat.
+
+\begin{table}[h]
+	{\centering
+	\begin{tabular}{ l || p{4cm} | p{4cm} }
+		& JIT & Klasika \\
+		\hline
+		\hline
+		Distribuce & bytecode & binární instrukce \\
+		\hline
+		Závislost distribuce & jazyk a překladač & procesor a OS \\
+		\hline
+		Výhoda překladače & překladač zná přesně cílový procesor, může sledovat chování programu & překladač má hodně času na překlad
+	\end{tabular} \\
+	}
+	\caption{Srovnání klasické metody kompilace a JIT}
+	\label{tab:Srovnani_JIT}
+\end{table}
+
+
+\subsubsection{Klasická kompilace}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm]{i2/softwarove_inzenyrstvi/obrazky/Preklad.pdf}
+	\caption{Průběh překladu zdrojových kódů v C++.}
+	\label{pic:Preklad}
+\end{figure}
+
+Všimněte si, že to, co se běžně nazývá překladačem je vlastně složeno z několika menších překladačů (preprocesor, překladač, assembler).
+
+\paragraph{Překladač}
+Na obrázku \ref{pic:Preklad} je červeně vyznačena oblast, kterou má na starosti program, který je běžně označován jako \emph{překladač} či \emph{kompilátor}. Tento program tedy provádí překlad ze zdrojových kódů do binárních souborů (za pomoci hlavičkových souborů). Tento program poběží tolikrát, kolik je v kompilovaném projektu kódu (.cpp). Pokud je v souboru .cpp odkaz na něco (proměnnou, funkci aj.) z jiného .cpp nebo z knihovny, tak na daném místě překladač nechá volné místo pro doplnění adresy (musí vědět kolik místa nechat -- proto potřebuje hlavičkové soubory odkazovaných souborů a knihoven).
+
+\paragraph{Linker}
+Jednotlivé soubory .obj, které vytvoří překladač je ještě potřeba spojit do jednoho spustitelného souboru. To má na starosti tzv. linker, který je spojí a doplní adresy do prázdných míst, které tam nechal překladač. Nemůže však vyplnit místa pro dynamicky linkované knihovny, proto je opět nechá prázdná.
+
+\paragraph{Loader}
+Hlavním úkolem loaderu je načíst program do paměti a spustit ho. Před jeho spuštěním je však potřeba přilinkovat ještě dynamicky linkované knihovny, takže loader vyplní prázdná místa, která mu tam nechal linker. Dynamické linkování se dá dělat několika způsoby. Buď se vyplní rovnou všechny adresy na všech místech, kde se program odkazuje do knihovny (těch ale může být hodně), nebo se do knihovny neadresuje přímo, ale přičítá se její offset a loader vyplní jen tento offset. Druhá možnost má nevýhodu v tom, že při každém volání se musí zjistit offset a ten se ještě musí přičíst k adrese v knihovně. Dá se tedy udělat kompromis, totiž že se udělá tabulka (používaných) adres v knihovně, kterou loader vyplní. V tabulce nejsou duplicity, takže vyplnění nebude trvat tak dlouho a při volání se nemusí nic sčítat, pouze se provede dereference. Která možnost se použije samozřejmě nemůže rozhodovat sám loader (potřebuje aby mu vhodné struktury připravil už překladač).
+
+\paragraph{Debugger}
+K ladění programů slouží debugger, který používá jak zkompilovaný program, tak zdrojové kódy. Potřebuje se však nějak dozvědět, která část zkompilovaného programu odpovídá které části zdrojových kódů. Tuto informaci mu poskytuje překladač.
+
+\paragraph{Knihovny}
+Knihovny se dělí na statické a dynamické. Statické knihovny se linkují s programem za kompilace (linkerem) a dynamické se linkují před spuštěním (loaderem). Způsoby linkování dynamických knihoven viz část o loaderu. Dynamické knihovny lze navíc načítat až za běhu aplikace. Knihovna tak může být načtena do paměti až v případě potřeby.
+
+\paragraph{Preprocesor}
+Zvláštní částí kompilátoru je preprocesor, což je vlastně sám překladač. Překládá totiž kód z jazyka preprocesoru do jazyka C/C++/... Z možností preprocesoru jazyka C se nejčastěji používá podmíněný překlad např.:
+\begin{verbatim}
+#ifdef unix
+  std::cout << "Ahoj unixáku!";
+#else
+  std::cout << "Ahoj neunixáku!";
+#endif
+\end{verbatim}
+V jazyce C se preprocesor používal více (např. pro konstanty) v C++ již byly některá tato použití nahrazena možnostmi samotného jazyka C++.
+
+
+\subsubsection{Struktura překladače}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm]{i2/softwarove_inzenyrstvi/obrazky/Faze_prekladu.png}
+	\caption{Fáze překladu.}
+	\label{pic:Prekladac-cerna_skrinka}
+\end{figure}
+Překladač se skládá z front endu a back endu. Překlad probíhá v několika fázích. Budeme předpokládat syntaxí řízený překlad. Překlad začíná spuštěním syntaktického analyzátoru, který postupně žádá lexikální analyzátor o další token. Ze získaných tokenů se snaží \uv{složit} některé z pravidel gramatiky (buď shora dolů nebo naopak). Jakmile jej najde, proběhne sémantická analýza, která podle pravidla upraví tabulky symbolů a případně proběhne generování mezikódu. Jakmile je dokončeno generování mezikódu, mohou na něm proběhnout optimalizace. Mezikód se potom předá back endu, který z něj vygeneruje kód na kterém může opět provést další (platformě specifické) optimalizace. Pokud se během celého procesu objeví chyba, překladač by se ji měl pokusit nějakým způsobem ignorovat (ale nahlásit) a pokračovat dál pokud možno tak, aby tím nevznikly další domnělé chyby a zároveň aby se na žádnou chybu nezapomnělo.
+
+
+
+
 \subsection{Konečné automaty a lexikální analýza.}
 \subsection{Syntaktická analýza - LL, LR techniky.}
 \subsection{Syntaxí řízený překlad a atributové gramatiky.}

@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1604.1263"
+   height="313.90759"
+   id="svg2"
+   inkscape:label="Pozadí"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="Preklad.svg">
+  <defs
+     id="defs3009">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path4525"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend"
+       style="overflow:visible">
+      <path
+         id="path4531"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="1096.3656"
+     inkscape:cy="184.04251"
+     inkscape:document-units="px"
+     inkscape:current-layer="g3811-5-2-0-8"
+     showgrid="false"
+     inkscape:connector-spacing="3"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1153"
+     inkscape:window-x="1276"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3012">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(167.5098,-84.995594)">
+    <rect
+       style="fill:none;stroke:#ff0000;stroke-width:4.99999952;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:19.99999976, 19.99999976;stroke-dashoffset:0"
+       id="rect6059"
+       width="754.28571"
+       height="95"
+       x="-71.795517"
+       y="204.67325" />
+    <rect
+       style="fill:none;stroke:#009900;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:20.00000039, 20.00000039;stroke-dashoffset:0"
+       id="rect6059-0"
+       width="164.57285"
+       height="95"
+       x="803.64258"
+       y="204.67325" />
+    <rect
+       style="fill:none;stroke:#0000ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:20.00000003, 20.00000003;stroke-dashoffset:0"
+       id="rect6059-8"
+       width="169.94052"
+       height="95"
+       x="1092.3466"
+       y="204.67325" />
+    <g
+       id="g3811"
+       transform="translate(-107.32574,183.3825)">
+      <rect
+         ry="25"
+         rx="25"
+         y="43.790752"
+         x="61.428574"
+         height="50"
+         width="130"
+         id="rect3037"
+         style="fill:#7f7fff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3807"
+         y="73.976303"
+         x="70.998886"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="fill:#000000;fill-opacity:1"
+           y="73.976303"
+           x="70.998886"
+           id="tspan3809"
+           sodipodi:role="line">Preprocesor</tspan></text>
+    </g>
+    <g
+       transform="translate(-391.0414,181.95392)"
+       id="g3839-4">
+      <rect
+         y="45.219326"
+         x="225.0316"
+         height="50"
+         width="80"
+         id="rect3816-0"
+         style="fill:#7fff7f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="245.62242"
+         y="75.404877"
+         id="text3807-1-9"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="245.62242"
+           y="75.404877"
+           style="fill:#000000;fill-opacity:1"
+           id="tspan3871">.cpp</tspan></text>
+    </g>
+    <g
+       transform="translate(38.822435,43.634502)"
+       id="g3839-4-8">
+      <rect
+         y="42.861092"
+         x="170.50568"
+         height="100"
+         width="199.99998"
+         id="rect3816-0-8"
+         style="fill:#ffbe7f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.99999952;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="270.88165"
+         y="67.953865"
+         id="text3807-1-9-2"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           x="270.88165"
+           y="67.953865"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan3902">.hpp soubory</tspan><tspan
+           sodipodi:role="line"
+           x="270.88165"
+           y="87.953865"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan3904">staticky linkovaných</tspan><tspan
+           sodipodi:role="line"
+           x="270.88165"
+           y="107.95387"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan4313">knihoven a dalších</tspan><tspan
+           sodipodi:role="line"
+           x="270.88165"
+           y="127.95387"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan4317">.obj souborů</tspan></text>
+    </g>
+    <g
+       id="g3811-5"
+       transform="translate(182.89951,183.3825)">
+      <rect
+         ry="25"
+         rx="25"
+         y="43.790752"
+         x="61.428574"
+         height="50"
+         width="130"
+         id="rect3037-9"
+         style="fill:#7f7fff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3807-2"
+         y="73.976303"
+         x="81.238144"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="fill:#000000;fill-opacity:1"
+           y="73.976303"
+           x="81.238144"
+           id="tspan3809-6"
+           sodipodi:role="line">Překladač</tspan></text>
+    </g>
+    <g
+       id="g3811-5-2"
+       transform="translate(473.12476,183.3825)">
+      <rect
+         ry="25"
+         rx="25"
+         y="43.790752"
+         x="61.428574"
+         height="50"
+         width="130"
+         id="rect3037-9-2"
+         style="fill:#7f7fff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3807-2-0"
+         y="73.976303"
+         x="126.31627"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1"
+           y="73.976303"
+           x="126.31627"
+           id="tspan3809-6-1"
+           sodipodi:role="line">Assembler</tspan></text>
+    </g>
+    <g
+       id="g3811-5-2-0"
+       transform="translate(763.34998,183.3825)">
+      <rect
+         ry="25"
+         rx="25"
+         y="43.790752"
+         x="61.428574"
+         height="50"
+         width="130"
+         id="rect3037-9-2-5"
+         style="fill:#7f7fff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3807-2-0-6"
+         y="73.976303"
+         x="126.31627"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1"
+           y="73.976303"
+           x="126.31627"
+           id="tspan3809-6-1-3"
+           sodipodi:role="line">Linker</tspan></text>
+    </g>
+    <g
+       id="g3811-5-2-0-8"
+       transform="translate(1053.5753,183.3825)">
+      <rect
+         ry="25"
+         rx="25"
+         y="43.790752"
+         x="61.428574"
+         height="50"
+         width="130"
+         id="rect3037-9-2-5-1"
+         style="fill:#7f7fff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3807-2-0-6-2"
+         y="73.976303"
+         x="126.31627"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1"
+           y="73.976303"
+           x="126.31627"
+           id="tspan3809-6-1-3-7"
+           sodipodi:role="line">Loader</tspan></text>
+    </g>
+    <g
+       transform="translate(616.41576,62.20592)"
+       id="g3839-4-8-5">
+      <rect
+         y="44.289673"
+         x="163.95364"
+         height="80"
+         width="220"
+         id="rect3816-0-8-5"
+         style="fill:#ffbe7f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.00000024;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="273.33353"
+         y="69.465454"
+         id="text3807-1-9-2-3"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           x="273.33353"
+           y="69.465454"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan3908-1">Staticky linkované</tspan><tspan
+           sodipodi:role="line"
+           x="273.33353"
+           y="89.465454"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan4258">knihovny (.lib/.a) a další</tspan><tspan
+           sodipodi:role="line"
+           x="273.33353"
+           y="109.46545"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan4319">.obj soubory</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-mid:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m -86.009799,252.17325 40.112633,0"
+       id="path4267"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g3839-4"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#g3811"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 309.3281,317.4032 -1e-5,-40.22995"
+       id="path4271"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end="#g3811-5"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-start="#g3839-4-8-6"
+       inkscape:connection-start-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 374.32808,252.17325 40.11264,0"
+       id="path4273"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end="#g3839-3"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-start="#g3811-5"
+       inkscape:connection-start-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 494.44072,252.17325 40.11261,0"
+       id="path4275"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g3839-3"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#g3811-5-2"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 664.55333,252.17325 40.11261,0"
+       id="path4277"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end="#g3839-3-5"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-start="#g3811-5-2"
+       inkscape:connection-start-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 954.77855,252.17325 40.11261,0"
+       id="path4281"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end="#g3839-3-5-9"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-start="#g3811-5-2-0"
+       inkscape:connection-start-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 784.66594,252.17325 40.11261,0"
+       id="path4291"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g3839-3-5"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#g3811-5-2-0"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 1074.8912,252.17325 40.1126,0"
+       id="path4297"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g3839-3-5-9"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#g3811-5-2-0-8"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 1245.0038,252.17325 40.1127,0"
+       id="path4301"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end="#g3839-3-5-9-9"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-start="#g3811-5-2-0-8"
+       inkscape:connection-start-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 889.77857,186.49559 -10e-6,40.67766"
+       id="path4303"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g3839-4-8-5"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#g3811-5-2-0"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 1180.0039,317.4032 -10e-5,-40.22995"
+       id="path4305"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g3839-4-8-6-9"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#g3811-5-2-0-8"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 309.32809,186.49559 0,40.67766"
+       id="path4307"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g3839-4-8"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#g3811-5"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 204.21546,252.17325 40.11262,0"
+       id="path4309"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end="#g3811-5"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-start="#g3839"
+       inkscape:connection-start-point="d4" />
+    <g
+       id="g3839-3-5-9"
+       transform="translate(773.46259,181.95392)">
+      <rect
+         y="45.219326"
+         x="221.42857"
+         height="50"
+         width="80"
+         id="rect3816-9-6-7"
+         style="fill:#7fff7f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         rx="0.0099999998"
+         ry="0.0099999998" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="259.61218"
+         y="75.404877"
+         id="text3807-1-5-1-6"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3809-7-1-5-3"
+           x="259.61218"
+           y="75.404877"
+           style="text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1">.exe</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="442.14285"
+         y="456.64789"
+         id="text4028-1"
+         sodipodi:linespacing="125%"
+         transform="translate(-113.57143,-373.57142)"><tspan
+           sodipodi:role="line"
+           id="tspan4030-5"
+           x="442.14285"
+           y="456.64789" /></text>
+    </g>
+    <g
+       id="g3839-3-5"
+       transform="translate(483.23737,181.95392)">
+      <rect
+         y="45.219326"
+         x="221.42857"
+         height="50"
+         width="80"
+         id="rect3816-9-6"
+         style="fill:#7fff7f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         rx="0.0099999998"
+         ry="0.0099999998" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="259.61218"
+         y="75.404877"
+         id="text3807-1-5-1"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3809-7-1-5"
+           x="259.61218"
+           y="75.404877"
+           style="text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1">.obj</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="442.14285"
+         y="456.64789"
+         id="text4028"
+         sodipodi:linespacing="125%"
+         transform="translate(-113.57143,-373.57142)"><tspan
+           sodipodi:role="line"
+           id="tspan4030"
+           x="442.14285"
+           y="456.64789" /></text>
+    </g>
+    <g
+       id="g3839"
+       transform="translate(-97.213116,181.95392)">
+      <rect
+         y="45.219326"
+         x="221.42857"
+         height="50"
+         width="80"
+         id="rect3816"
+         style="fill:#7fff7f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         rx="0.0099999998"
+         ry="0.0099999998" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="247.01939"
+         y="75.404877"
+         id="text3807-1"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3809-7"
+           x="247.01939"
+           y="75.404877"
+           style="fill:#000000;fill-opacity:1">.pp</tspan></text>
+    </g>
+    <g
+       transform="translate(927.79597,257.76967)"
+       id="g3839-4-8-6-9">
+      <rect
+         y="59.633526"
+         x="152.2079"
+         height="60"
+         width="200"
+         id="rect3816-0-8-7-0"
+         style="fill:#ffe07f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.00000024;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="251.85634"
+         y="84.726295"
+         id="text3807-1-9-2-8-8"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           x="251.85634"
+           y="84.726295"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan3908-5-0">Dynamicky linkované</tspan><tspan
+           sodipodi:role="line"
+           x="251.85634"
+           y="104.7263"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan6464">knihovny (.dll/.so)</tspan></text>
+    </g>
+    <g
+       transform="translate(47.120203,275.75531)"
+       id="g3839-4-8-6">
+      <rect
+         y="41.647888"
+         x="152.2079"
+         height="80"
+         width="220"
+         id="rect3816-0-8-7"
+         style="fill:#ffe07f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="262.54968"
+         y="68.727966"
+         id="text3807-1-9-2-8"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           x="262.54968"
+           y="68.727966"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan3902-9">.hpp soubory</tspan><tspan
+           sodipodi:role="line"
+           x="262.54968"
+           y="88.727966"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan3904-5">dynamicky linkovaných</tspan><tspan
+           sodipodi:role="line"
+           x="262.54968"
+           y="108.72797"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan3908-5">knihoven</tspan></text>
+    </g>
+    <g
+       id="g3839-3"
+       transform="translate(193.01215,181.95392)">
+      <rect
+         y="45.219326"
+         x="221.42857"
+         height="50"
+         width="80"
+         id="rect3816-9"
+         style="fill:#7fff7f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         rx="0.0099999998"
+         ry="0.0099999998" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="239.49498"
+         y="75.404877"
+         id="text3807-1-5"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3809-7-1"
+           x="239.49498"
+           y="75.404877"
+           style="fill:#000000;fill-opacity:1">.asm</tspan></text>
+    </g>
+    <g
+       id="g3839-3-5-9-9"
+       transform="translate(1077.4101,178.12384)">
+      <rect
+         y="49.049408"
+         x="207.70644"
+         height="50"
+         width="150"
+         id="rect3816-9-6-7-6"
+         style="fill:#7fffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.00000024;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         rx="0.0099999998"
+         ry="0.0099999998" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="282.98474"
+         y="69.342377"
+         id="text3807-1-5-1-6-1"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           id="tspan3809-7-1-5-3-1"
+           x="282.98474"
+           y="69.342377"
+           style="text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1">Spustitelný kód</tspan><tspan
+           sodipodi:role="line"
+           x="282.98474"
+           y="89.342377"
+           style="text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan4200">v paměti</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="442.14285"
+         y="456.64789"
+         id="text4028-1-4"
+         sodipodi:linespacing="125%"
+         transform="translate(-113.57143,-373.57142)"><tspan
+           sodipodi:role="line"
+           id="tspan4030-5-9"
+           x="442.14285"
+           y="456.64789" /></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+       d="m 84.102834,252.17325 40.112626,0"
+       id="path5685"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-end="#g3839"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-start="#g3811" />
+    <g
+       transform="translate(638.28498,257.76967)"
+       id="g3839-4-8-6-9-8">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);display:inline"
+         d="m 419.00339,16.087483 -1e-5,-40.229944"
+         id="path6215"
+         inkscape:connector-type="polyline"
+         inkscape:connector-curvature="0"
+         inkscape:connection-end="#g3811-5-2-0"
+         inkscape:connection-end-point="d4"
+         transform="translate(-167.5098,43.546043)" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="-73.565598"
+       y="185.58946"
+       id="text6428"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6430"
+         x="-73.565598"
+         y="185.58946"
+         style="font-size:32px">Kompilátor</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#009900;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="706.11639"
+       y="216.14877"
+       id="text6428-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6430-3"
+         x="706.11639"
+         y="216.14877"
+         style="font-size:32px;fill:#009900;fill-opacity:1">Linker</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="1088.9644"
+       y="190.89494"
+       id="text6428-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6430-1"
+         x="1088.9644"
+         y="190.89494"
+         style="font-size:32px;fill:#0000ff;fill-opacity:1">Operační systém</tspan></text>
+    <g
+       transform="translate(617.57065,277.76967)"
+       id="g3839-4-8-6-9-7">
+      <rect
+         y="39.633526"
+         x="152.2079"
+         height="80"
+         width="240"
+         id="rect3816-0-8-7-0-0"
+         style="fill:#ffe07f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="272.25183"
+         y="64.809311"
+         id="text3807-1-9-2-8-8-7"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           x="272.25183"
+           y="64.809311"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan6464-1">Informace o dynamicky</tspan><tspan
+           sodipodi:role="line"
+           x="272.25183"
+           y="84.809311"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan6502">linkovaných knihovnách</tspan><tspan
+           sodipodi:role="line"
+           x="272.25183"
+           y="104.80931"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle;fill:#000000;fill-opacity:1"
+           id="tspan6504">(.lib/.so)</tspan></text>
+    </g>
+  </g>
+</svg>

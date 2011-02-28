@@ -396,6 +396,37 @@ Nyní se budeme zabývat tím, jak zkonstruovat LR automat, tedy zejména konstr
 
 Cílem rozšíření gramatiky je pomoci parseru s rozpoznáváním konce parsování. Rozšíření tedy není třeba provádět, pokud už původní gramatika má pouze jedno pravidlo pro počáteční neterminál \(S\) a \(S\) se nevyskytuje na pravé straně žádného z pravidel gramatiky.
 
+\vskip 1em
+\begin{definiceN}{Otečkované pravidlo}
+	\emph{Otečkované pravidlo} gramatiky \(G\) je pravidlo, které má na pravé straně na nějaké pozici speciální symbol tečky. Speciální znamená, že stejné pravidlo s tečkou na různých pozicích na pravé straně se chápe jako různá otečkovaná pravidla. Zároveň však tato tečka není ani terminálem ani neterminálem gramatiky.
+\end{definiceN}
+
+\newcommand{\tecka}{\bullet}
+
+Otečkované pravidlo se také nazývá LR(0) položka. Tečku v pravidle lze chápat jako označení místa, kde se právě parser nachází. Příklad otečkovaného pravidla: \(E \to E + \tecka T\)
+
+\vskip 1em
+\begin{definiceN}{Operace uzávěru}
+	Mějme množinu otečkovaných pravidel \(I\) z gramatiky \(G = (T, N, S, P)\). Definujme operaci \(CLOSURE(I)\) jako množinu otečkovaných pravidel zkonstruovaných z \(I\) následujícím postupem:
+	\begin{penumerate}
+		\item Přidej do \(CLOSURE(I)\) množinu \(I\).
+		\item \(\forall A \to \alpha \tecka B \beta \in CLOSURE(I)\) (tedy pravidla, kde je tečka těsně před neterminálem), kde \(B \in N\), přidej \(\forall B \to \gamma \in P\) do \(CLOSURE(I)\) otečkované pravidlo \(B \to \tecka \gamma\), pokud tam ještě není. Toto opakuj tak dlouho, dokud přibývají pravidla do \(CLOSURE(I)\).
+	\end{penumerate}
+\end{definiceN}
+
+Dalo by se přibližně říci, že do \(CLOSURE(I)\) postupně přidáváme pravidla tak, že pokud přidáváme pravidlo \(B\) podle pravidla \(A\), tak tečka v \(B\) je umístěna tak, že pokud by se parser nacházel v místě tečky v pravidle \(A\) a věděli bychom, že se musí použít pravidlo \(B\), tak se v tom samém okamžiku bude parser nacházet v místě tečky v \(B\).
+
+\vskip 1em
+\begin{definiceN}{Operace přechodu}
+	Definujme operaci \(GOTO(I, X)\) pro množinu otečkovaných pravidel \(I\) a symbol gramatiky \(X\) jako uzávěr množiny všech pravidel \(A \to \alpha X \tecka \beta\) takových, že \(A \to \alpha \tecka X \beta \in I\).
+\end{definiceN}
+
+Definice vlastně říká, že chceme-li udělat množinu \(GOTO(I, X)\), musíme z \(I\) vzít všechna otečkovaná pravidla, ve kterých je tečka těsně před symbolem \(X\). Potom v těchto pravidlech tečku posunout těsně za symbol \(X\) a udělat uzávěr z této množiny.
+
+\paragraph{Konstrukce KKMOP} Kanonickou kolekci množin otečkovaných pravidel vytvoříme takto: Mějme rozšířenou gramatiku \(G' = (T, N', S', P')\). Budeme konstruovat kolekci \(C\). Na počátku položíme \(C = \{ CLOSURE(\{S' \to \tecka S\})\}\). Následně \(\forall I \in C a \forall X \in T \cup N'\) takové, že \(GOTO(I, X) \notin C \wedge GOTO(I, X) \neq \emptyset\), přidej \(GOTO(I, X)\) do \(C\). Toto opakujeme dokud něco přibývá do \(C\).
+
+Je potřeba si uvědomit, že \(C\) je množina množin, takže na začátku obsahuje jen jeden prvek, tedy množinu \(CLOSURE(\{S' \to \tecka S\})\). Na příklad takové konstrukce se raději podívejte na slajdy p. Yaghoba k Principům překladačů, kde je vidět jak konstrukce postupně probíhá.
+
 
 
 

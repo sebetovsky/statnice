@@ -40,7 +40,7 @@
 Mějme vstupní jazyk \(L_{in}\) generovaný gramatikou \(G_{in}\).
 Dále mějme výstupní jazyk \(L_{out}\) generovaný gramatikou \(G_{out}\) nebo přijímaný automatem \(A_{out}\).
 \emph{Překladač} je zobrazení \(L_{in} \to L_{out}\), kde \(\forall w_{in} \in L_{in} \exists w_{out} \in L_{out}\) a zároveň pro \(w_{in} \notin L_{in}\) zobrazení neexistuje.
-\end{definice}
+\end{definiceN}
 
 
 \subsubsection{Příklady užití technik překladačů}
@@ -126,7 +126,7 @@ Zvláštní částí kompilátoru je preprocesor, což je vlastně sám překlad
 	\centering
 	\includegraphics[width=15cm]{i2/softwarove_inzenyrstvi/obrazky/Faze_prekladu.png}
 	\caption{Fáze překladu.}
-	\label{pic:Prekladac-cerna_skrinka}
+	\label{pic:Faze_prekladu}
 \end{figure}
 Překladač se skládá z front endu a back endu. Překlad probíhá v několika fázích. Budeme předpokládat syntaxí řízený překlad. Překlad začíná spuštěním syntaktického analyzátoru, který postupně žádá lexikální analyzátor o další token. Ze získaných tokenů se snaží \uv{složit} některé z pravidel gramatiky (buď shora dolů nebo naopak). Jakmile jej najde, proběhne sémantická analýza, která podle pravidla upraví tabulky symbolů a případně proběhne generování mezikódu. Jakmile je dokončeno generování mezikódu, mohou na něm proběhnout optimalizace. Mezikód se potom předá back endu, který z něj vygeneruje kód na kterém může opět provést další (platformě specifické) optimalizace. Pokud se během celého procesu objeví chyba, překladač by se ji měl pokusit nějakým způsobem ignorovat (ale nahlásit) a pokračovat dál pokud možno tak, aby tím nevznikly další domnělé chyby a zároveň aby se na žádnou chybu nezapomnělo.
 
@@ -254,11 +254,55 @@ V gramatice se může objevit také tzv. levá faktorizace, což je situace, kdy
 
 Syntaktická analýza může probíhat dvěma směry, a to buď shora dolů nebo zdola nahoru.
 
-\paragraph{Shora dolů} Při analýza shora dolů se analyzátor snaží určit použitá pravidla v derivačním stromě od jeho kořene (a z levé strany). Tento postup lze realizovat buď rekurzivním sestupem (obvyklejší) nebo pomocí LL automatu. Analýza shora dolů najde nejlevější derivaci.
+\paragraph{Shora dolů} Při analýza shora dolů se analyzátor snaží určit použitá pravidla v derivačním stromě od jeho kořene. Tento postup lze realizovat buď rekurzivním sestupem (obvyklejší) nebo pomocí LL automatu. Analýza shora dolů najde nejlevější derivaci. Tento postup se používá např. v generátoru parserů ANTLR.
 
-\paragraph{Zdola nahoru} Naopak analýza zdola nahoru se snaží hledat použitá pravidla zdola nahoru (a z levé strany), tedy derivační strom vytváří tak, že postupně listy spojuje do menších stromů a ty do větších až dostane celý derivační strom. Tento postup lze realizovat LR automatem. \TODO{Překontrolovat/doplnit.}
+\paragraph{Zdola nahoru} Naopak analýza zdola nahoru se snaží hledat použitá pravidla zdola nahoru, tedy derivační strom vytváří tak, že postupně listy spojuje do menších stromů a ty do větších až dostane celý derivační strom. Tento postup lze realizovat LR automatem. Analýza zdola nahoru hledá nejpravější derivaci (ale pozpátku).Tento postup se používá např. v generátoru parserů Bison (Bison generuje ve výchozím nastavení parsery rozpoznávající jen \(LALR(1)\) -- aby byly parsery jednodušší/rychlejší). Oproti postupu shora dolů má postup zdola nahoru tyto výhody:
 
-\paragraph{Názvy gramatik} \TODO{Dopsat.}
+\begin{pitemize}
+	\item Lze rozpoznávat všechny programovací jazyky zapsané bezkontextovou gramatikou.
+	\item Dá se implementovat stejně efektivně jako metoda shora dolů.
+	\item Třída rozpoznávaných jazyků \(LR(1)\) je vlastní nadmnožinou třídy \(LL(1)\).
+\end{pitemize}
+
+\subsubsection{Typy gramatik}
+
+Gramatiky související s překladači se označují kombinací, která odpovídá vzoru \(PXY(k)\), kde
+
+\begin{pitemize}
+	\item \(X \in \{L, R\}\) označuje směr čtení vstupu (v našem případě vždy \(L\),
+	\item \(Y \in \{L, R\}\) označuje druh derivace, tedy \(L\) odpovídá levé derivaci a \(R\) odpovídá pravé derivaci.
+	\item \(P\) označuje prefix, který nemá jednotný význam, ale dají se pomocí něj gramatiky členit ještě jemněji.
+	\item \(k \in \mathbb{N}\) označuje výhled automatu, tedy počet symbolů (tokenů), podle kterých se může automat rozhodovat, které vybrat pravidlo. Obvykle \(k = 1\), ale může být i \(k = 0\).
+\end{pitemize}
+
+Příklady: \(LL(1)\), \(LR(0)\), \(LR(1)\), \(LL(k)\), \(SLR(1)\), \(LALR(1)\).
+
+\vskip 1em
+\begin{definiceN}{\(LL(1)\) gramatika}
+	Bezkontextová gramatika \(G = (T, N, S, P)\) je \emph{\(LL(1)\) gramatika}, pokud pro každá 2 pravidla \(A \to \alpha, A \to \beta \in P\), kde \(\alpha \neq \beta\), a každé 2 levé větné formy \(uA \gamma, vA \delta\), kde \(u, v \in T^*\) a \(\gamma, \delta \in (T \cup N)^*\), platí \(FIRST(\alpha \gamma) \cap FIRST(\beta \delta) = \emptyset\).
+\end{definiceN}
+
+Tato definice se snaží říct, že pravidla jsou taková, abych podle prvního znaku jednoznačně poznal, které pravidlo mám použít (snáze se to pochopí, když člověk ví, jak funguje rekurzivní sestup a LL automat, jejichž popisy následují dále). \(\gamma\) a \(\delta\) jsou v definici aby rozhodly, pokud \(\alpha\) nebo \(\beta\) budou prázdné řetězce.
+
+\vskip 1em
+\begin{definiceN}{silná a slabá \(LL(k)\) gramatika}
+	Bezkontextová gramatika \(G = (T, N, S, P)\) je \emph{silná \(LL(k)\) gramatika} pro \(k \ge 1\), pokud pro každá 2 pravidla \(A \to \alpha, A \to \beta \in P\), kde \(\alpha \neq \beta\), a každé 2 levé větné formy \(uA \gamma, vA \delta\), kde \(u, v \in T^*\) a \(\gamma, \delta \in (T \cup N)^*\), platí \(FIRST_k(\alpha \gamma) \cap FIRST_k(\beta \delta) = \emptyset\). Gramatiku nazveme \emph{slabou \(LL(k)\) gramatikou}, je-li silnou \(LL(k)\) gramatikou a navíc \(u = v\) a \(\gamma = \delta\).
+\end{definiceN}
+
+\begin{definiceN}{\(LR(k)\) gramatika}
+	Bezkontextová gramatika \(G = (T, N, S, P)\) je \emph{\(LR(k)\) gramatika} pro \(k \ge 1\), pokud pro každá 2 pravidla \(A \to \alpha, A \to \beta \in P\), kde \(\alpha \neq \beta\), a každé 2 pravé větné formy \(\gamma A u, \delta A v\), kde \(u, v \in T^*\) a \(\gamma, \delta \in (T \cup N)^*\), platí \(FIRST_k(u) \cap FIRST_k(v) = \emptyset\).
+\end{definiceN}
+
+Oproti \(LL(k)\) gramatice jsou množiny \(FIRST_k\) mnohem menší a proto je větší šance, že bude průnik prázdný a proto do \(LR(k)\) patří více gramatik/jazyků.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=6cm]{i2/softwarove_inzenyrstvi/obrazky/Tridy_jazyku.pdf}
+	\caption{Inkluze tříd jazyků.}
+	\label{pic:Tridy_jazyku}
+\end{figure}
+
+Obrázek \ref{pic:Tridy_jazyku} znázorňuje inkluzi tříd jazyků. Navíc platí, že sjednocení všech \(LR(k)\) tříd je \(DBKJ\). Přesto se jazyky nad \(LR(1)\) v praxi nepoužívají.
 
 
 \subsubsection{FIRST a FOLLOW}
@@ -268,29 +312,89 @@ Syntaktická analýza může probíhat dvěma směry, a to buď shora dolů nebo
 \end{definiceN}
 
 \begin{definiceN}{FOLLOW}
-	Nechť \(A\) je neterminál, potom \(FOLLOW(A)\) definujeme jako množinu terminálů, které se mohou vyskytovat těsně za \(A\) v nějakém řetězci, který vznikl derivací z počátečního neterminálu gramatiky (\(S \derives{*} \alpha A a \beta\), pro nějaké řetězce symbolů \(\alpha\) a \(\beta\)). Pokud je \(A\) nejpravější symbol v nějakém přepisu, pak je ve \(FOLLOW(A)\) i \(\$\) -- speciální symbol.
+	Nechť \(A\) je neterminál, potom \(FOLLOW(A)\) definujeme jako množinu terminálů, které se mohou vyskytovat těsně za \(A\) v nějakém řetězci, který vznikl derivací z počátečního neterminálu gramatiky (\(S \derives{*} \alpha A a \beta\), pro nějaké řetězce symbolů \(\alpha\) a \(\beta\)). Pokud je \(A\) nejpravější symbol v nějakém přepisu, pak je ve \(FOLLOW(A)\) i \(\$\) -- speciální symbol pro konec řetězce.
 \end{definiceN}
 
 \begin{priklad}
 	Mějme řetězec \(ABC\), kde \(A\), \(B\) i \(C\) jsou neterminály a k tomuto řetězci jsme se dostali pravidlem \(S \to ABC\), které je jediné pro přepis \(S\). Množina \(FIRST(B)\) nám teď říká, jaké neterminály se můžou objevit na začátku řetězce, na který se přepíše neterminál \(B\). Dokonce ve \(FIRST(B)\) jsou i terminály se kterými řetězec v gramatice nemůže skončit. \(FOLLOW(B)\) nám říká, jaké terminály mohou následovat těsně za řetězcem na který se přepíše \(B\). Pokud je použité pravidlo jediné ve kterém se vyskytuje na pravé straně neterminál \(B\), pak \(FOLLOW(B) = FIRST(C)\) (až na \(\lambda\) a \(\$\)).
 \end{priklad}
 
-\TODO{Dopsat konstrukci FIRST a FOLLOW.}
+\paragraph{Konstrukce FIRST} Nechť \(X\) je symbol gramatiky pro který hledáme množinu \(FIRST(X)\). Je-li \(X\) terminál, pak \(FIRST(X) = \{X\}\). Existuje-li přepisovací pravidlo \(X \to \lambda\), pak přidej \(\lambda\) do \(FIRST(X)\). Pokud je \(X\) neterminál a \(X \to Y_1 Y_2 \ldots Y_k\) je přepisovací pravidlo, pak přidej \(a\) do \(FIRST(X)\) pro všechna \(a \in FIRST(Y_i)\) kde pro \(i\) platí: \(\forall j<i: \lambda \in FIRST(Y_j)\). Pokud navíc platí že \(\forall j: \lambda \in FIRST(Y_j)\), pak přidej \(\lambda\) do \(FIRST(X)\).
+
+Množina \(FIRST\) pro řetězce symbolů se konstruuje analogicky.
+
+\paragraph{Konstrukce FOLLOW} Nechť \(X\) je neterminál gramatiky pro který hledáme množinu \(FOLLOW(X)\). Je-li \(X\) počáteční neterminál gramatiky, přidej \(\$\) do \(FOLLOW(X)\), kde \(\$\) se speciální symbol pro konec řetězce. Existuje-li přepisovací pravidlo \(A \to \alpha X \beta\), kde \(A\) je neterminál a \(\alpha\) a \(\beta\) řetězce symbolů, pak přidej obsah množiny \(FIRST(\beta)\) kromě \(\lambda\) do \(FOLLOW(X)\). Existuje-li pravidlo \(A \to \alpha X\) nebo pravidlo \(A \to \alpha X \beta\) kde \(\lambda \in FIRST(\beta)\), pak přidej celý obsah množiny \(FOLLOW(A)\) do množiny \(FOLLOW(X)\).
 
 
 \subsubsection{Rekurzivní sestup}
 
-\TODO{Dopsat rekurzivní sestup.}
+Pro každý neterminál existuje jedna procedura, která dělá dvě věci.
+\begin{penumerate}
+	\item Rozhoduje se, které pravidlo bude použito na základě výhledu (jazyk přijímaný těmito automaty je takový, že se dokáže jednoznačně rozhodnout -- mj. díky levé faktorizaci). Pravidlo s pravou stranou \(\alpha\) bude použito, pokud je výhled ve \(FIRST(\alpha)\). Existuje-li pro nějaký výhled více pravých stran, pak takovou gramatiku nelze použít pro rekurzivní sestup. Pravidlo s \(\lambda\) na pravé straně se použije tehdy, pokud výhled není ve \(FIRST\) žádné pravé strany.
+	\item Kód procedury postupuje podle pravé strany vybraného pravidla, tedy pro terminály zkontroluje, jestli je terminál i na vstupu, pokud není, nastala chyba. Pro neterminál zavolá jeho proceduru.
+\end{penumerate}
 
 
 \subsubsection{LL automat}
 
-\TODO{Dopsat (vč. LL(k) gramatiky).}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13cm]{i2/softwarove_inzenyrstvi/obrazky/LL_automat.png}
+	\caption{LL automat.}
+	\label{pic:LL_automat}
+\end{figure}
+
+Na obrázku \ref{pic:LL_automat} je vidět vstup, tedy zdrojový kód, který analyzujeme. Na každém políčku je jeden symbol gramatiky, tedy tokeny, které syntaktickému analyzátoru předává lexikální analyzátor. Na zásobník se ukládají symboly, které určují co očekáváme na vstupu. Parsovací tabulka \(M\) je tabulka, ve které se indexuje pomocí neterminálu a terminálu (místo terminálu může být použit i speciální symbol \(\$\)) a v každé buňce tabulky je uloženo nejvýše jedno pravidlo gramatiky. Indexaci v tabulce budeme zapisovat jako \(M[A, a]\), kde \(A\) je neterminál a \(a\) je terminál.
+
+\paragraph{Funkce LL automatu} Na začátku je hlava nastavena na začátek vstupu a na zásobníku je speciální symbol pro konec řetězce \(\$\) a počáteční neterminál gramatiky. V každém kroku se automat rozhoduje podle symbolu \(X\) na vrcholu zásobníku a terminálu \(a\), který je na vstupu (tedy je na něj nastavena hlava). Mohou nastat následující situace.
+
+\begin{pitemize}
+	\item Je-li \(X = a = \$\), pak se automat s úspěchem zastaví.
+	\item Je-li \(X = a \neq \$\), pak se \(X\) odebere ze zásobníku a hlava se přesune o jedno políčko vstupu dál.
+	\item Je-li \(X\) neterminál, pak se automat rozhodne podle \(M[X, a]\). Obsahuje-li buňka pravidlo (označme \(p\), pak se odebere \(X\) ze zásobníku a na zásobník se vloží pravá strana pravidla \(p\) tak, aby nejlevější symbol pravidla byl na vrcholu zásobníku. Zároveň je vygenerován výstup (kousek levé derivace), tedy informace o tom, že bylo použito pravidlo \(p\). Pokud buňka tabulky neobsahovala pravidlo, nahlásí se chyba.
+\end{pitemize}
+
+\paragraph{Konstrukce tabulky automatu} Teď je ještě potřeba vědět, jak zkonstruovat tabulku \(M\). Nejprve inicializujeme buňky tabulky na prázdné a potom pro každé pravidlo gramatiky \(A \to \alpha\) provedeme:
+
+\begin{penumerate}
+	\item \(\forall a \in FIRST(\alpha)\) přidáme \(A \to \alpha\) do \(M[A, a]\).
+	\item Pokud \(\lambda \in FIRST(\alpha)\), pak přidáme \(A \to \alpha\) do \(M[A, b] \forall b \in FOLLOW(A)\). Pokud navíc \(\$ \in FOLLOW(A)\), pak přidáme \(A \to \alpha\) do \(M[A, \$]\).
+\end{penumerate}
+
+Pokud jste strukturu nebo funkci LL automatu nepochopili, zkuste se podívat na příklad ve slajdech p. Yaghoba na Principy překladačů.
 
 
 \subsubsection{LR automat}
 
-\TODO{Dopsat.}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13cm]{i2/softwarove_inzenyrstvi/obrazky/LR_automat.png}
+	\caption{LR automat.}
+	\label{pic:LR_automat}
+\end{figure}
+
+Obrázek \ref{pic:LR_automat} popisuje strukturu LR automatu. V zásobníku jsou zde namíchána čísla stavů (\(s_i\)) a symboly gramatiky (\(X_i\)). Ve skutečné implementaci se však tyto dvě skupiny neukládají do jednoho zásobníku, ale do dvou a místo symbolů gramatiky jsou v zásobníku uloženy podstromy derivačního stromu. A potom je tady ještě tabulka, která obsahuje akce a \uv{goto}. V tabulce akcí (označme \(A\)) se adresuje pomocí stavu (\(s\)) a terminálu (\(a\)) a v buňkách obsahuje instrukce pro další práci automatu. Adresovat v této tabulce budeme tedy pomocí výrazu \(A[s, a]\). V tabulce \uv{goto} (\(G\)) se adresuje pomocí stavu (\(s\)) a neterminálu (\(A\)). V buňkách této tabulky se nachází čísla nových stavů. Adresaci v tabulce \uv{goto} budeme zapisovat jako \(G[s, A]\). Tabulka \uv{goto} se využívá jen u některých instrukcí, jak bude vidět na následujícím popisu funkce automatu.
+
+\paragraph{Funkce LR automatu} Na začátku je hlava nastavena na začátek vstupu a na zásobníku je jen počáteční stav (označme \(s_0\)). V každém kroku se pro vrchol zásobníku \(s_m\) a čtený vstup \(a_i\) provedou následující činnosti:
+
+\begin{penumerate}
+	\item Pomocí \(A[s_m, a_i]\) zjistíme instrukci \(I\) a podle jejího typu budeme postupovat dále.
+		\begin{penumerate}
+			\item \(I\) je typu \emph{shift} s parametrem \(s\). Pak \(a_i\) dám na zásobník, posuneme hlavu o 1 symbol dál a na zásobník dáme \(s\).
+			\item \(I\) je typu \emph{reduce} s parametrem \(A \to \alpha\), což je pravidlo gramatiky. Ze zásobníku odstraníme tolik dvojic \((s_k, X_k)\), jak dlouhý je řetězec \(\alpha\) (jednotkou je jeden symbol). Označme \(s\) stav, který zbyl na vrcholu zásobníku. Pomocí \(G[s, A]\) zjistíme stav \(s'\). Na vrchol zásobníku přidáme \(A\) a \(s'\). Na výstup vygenerujeme použití pravidla \(A \to \alpha\).
+			\item \(I\) je typu \emph{accept}. Vstupní slovo bylo úspěšně rozpoznáno, máme tedy vygenerovanou derivaci.
+			\item \(I\) je typu \emph{error}. Vstupní slovo neodpovídá gramatice.
+		\end{penumerate}
+\end{penumerate}
+
+Nyní se budeme zabývat tím, jak zkonstruovat LR automat, tedy zejména konstrukcí tabulek. K tomu budeme potřebovat mj. různé podivnosti jako jsou otečkovaná pravidla a kanonické kolekce.
+
+\vskip 1em
+\begin{definiceN}{Rozšíření gramatiky}
+	Mějme gramatiku \(G = (T, N, S, P)\). \emph{Rozšířením gramatiky} \(G\) je gramatika \(G' = (T, N', S', P')\), kde \(N' = N \cup \{S'\}, P' = P \cup \{S' \to S\}.
+\end{definiceN}
+
+Cílem rozšíření gramatiky je pomoci parseru s rozpoznáváním konce parsování. Rozšíření tedy není třeba provádět, pokud už původní gramatika má pouze jedno pravidlo pro počáteční neterminál \(S\) a \(S\) se nevyskytuje na pravé straně žádného z pravidel gramatiky.
 
 
 

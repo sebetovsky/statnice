@@ -1,3 +1,14 @@
+\definecolor{orange}{RGB}{255,127,0}
+
+\newcommand{\TODO}[1]{\colorbox{orange}{TODO: #1}}
+\newcommand{\derives}[1]{\implies \hskip -0.7em ^#1 \hskip 0.7em}
+
+
+
+
+
+
+
 \newpage
 \section{Programovací jazyky a překladače}
 \begin{pozadavky}
@@ -18,6 +29,7 @@
 \end{pozadavky}
 
 \subsection{Struktura kompilátoru a navazujících nástrojů (linkery, loadery, debuggery, knihovny, preprocesory).}
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=8cm]{i2/softwarove_inzenyrstvi/obrazky/Prekladac-cerna_skrinka.pdf}
@@ -95,15 +107,18 @@ K ladění programů slouží debugger, který používá jak zkompilovaný prog
 Knihovny se dělí na statické a dynamické. Statické knihovny se linkují s programem za kompilace (linkerem) a dynamické se linkují před spuštěním (loaderem). Způsoby linkování dynamických knihoven viz část o loaderu. Dynamické knihovny lze navíc načítat až za běhu aplikace. Knihovna tak může být načtena do paměti až v případě potřeby.
 
 \paragraph{Preprocesor}
-Zvláštní částí kompilátoru je preprocesor, což je vlastně sám překladač. Překládá totiž kód z jazyka preprocesoru do jazyka C/C++/... Z možností preprocesoru jazyka C se nejčastěji používá podmíněný překlad např.:
-\begin{verbatim}
-#ifdef unix
-  std::cout << "Ahoj unixáku!";
-#else
-  std::cout << "Ahoj neunixáku!";
-#endif
-\end{verbatim}
-V jazyce C se preprocesor používal více (např. pro konstanty) v C++ již byly některá tato použití nahrazena možnostmi samotného jazyka C++.
+Zvláštní částí kompilátoru je preprocesor, což je vlastně sám překladač. Překládá totiž kód z jazyka preprocesoru do jazyka C/C++/... Z možností preprocesoru jazyka C se nejčastěji používá podmíněný překlad, jehož použití je vidět na ukázce kódu \ref{cod:Preprocesor}. V jazyce C se preprocesor používal více (např. pro konstanty), v C++ již byly některá tato použití nahrazena možnostmi samotného jazyka C++.
+\begin{kod}[h]
+	\begin{verbatim}
+		#ifdef unix
+		  std::cout << "Ahoj unixáku!";
+		#else
+		  std::cout << "Ahoj neunixáku!";
+		#endif
+	\end{verbatim}
+	\caption{Příklad použití preprocesoru.}
+	\label{cod:Preprocesor}
+\end{kod}
 
 
 \subsubsection{Struktura překladače}
@@ -119,7 +134,167 @@ Překladač se skládá z front endu a back endu. Překlad probíhá v několika
 
 
 \subsection{Konečné automaty a lexikální analýza.}
+
+\TODO{Dopsat tuto otázku: Co mají konečné automaty společného s lexikální analýzou?}
+
+
+
+
 \subsection{Syntaktická analýza - LL, LR techniky.}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{i2/softwarove_inzenyrstvi/obrazky/Syntakticka_analyza.pdf}
+	\caption{Hlavní úkol syntaktické analýzy.}
+	\label{pic:Syntakticka_analyza}
+\end{figure}
+
+Hlavním úkolem syntaktické analýzy je rozpoznat, jestli slovo (=zdrojový kód) na vstupu je slovem ze vstupního jazyka (=korektním programem v daném jazyce) a vyrobí jeho derivační strom.
+
+Používá-li se technika syntaxí řízeného překladu, syntaktická analýza řídí celý překladač (rozuměj hlavní cyklus překladače je v syntaktickém analyzátoru).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13cm]{i2/softwarove_inzenyrstvi/obrazky/Syntakticka_analyza_v_prekladaci.png}
+	\caption{Syntaktická analýza ve vztahu k ostatním částem překladače.}
+	\label{pic:Syntakticka_analyza_v_prekladaci}
+\end{figure}
+
+Na obrázku \ref{pic:Syntakticka_analyza_v_prekladaci} je vidět propojení mezi syntaktickou analýzou a tabulkou symbolů, které by správně nemělo být potřeba, ale využívá se k obejití některých kontextových vlastností jazyka.
+
+Je-li řeč o bezkontextových gramatikách, což běžné jazyky (přibližně) splňují, je potřeba zásobníkový automat, který postaví derivační strom. Vlastnosti jazyka, které přesahují bezkontextovost (např. deklarace identifikátoru před použitím nebo stejný počet parametrů v deklaraci a volání funkce) jsou potom řešeny při sémantické analýze.
+
+\begin{definice}
+	Znak nazveme \emph{symbolem}, je-li tento znak terminálem nebo neterminálem.
+\end{definice}
+
+
+\subsubsection{Jednoznačnost gramatiky}
+
+Ke každému slovu musí být derivační strom určen jednoznačně. Případem situace, kdy tomu tak nemusí být a je třeba gramatiku upravit (oproti přirozené verzi), je problém \uv{dangling else}, kdy podle (přirozené) gramatiky nevíme, ke kterému \uv{ifu} větev else patří.
+
+\begin{kod}[h]
+	\begin{verbatim}
+		stmt -> if expr then stmt
+		      | if expr then stmt else stmt
+		      | while expr do stmt
+		      | goto num
+	\end{verbatim}
+	\caption{Původní (přirozená) gramatika.}
+	\label{cod:Prirozena_gramatika}
+\end{kod}
+
+\begin{kod}[h]
+	\begin{verbatim}
+		stmt -> hodny_stmt
+		      | zly_stmt
+		hodny_stmt -> if expr then hodny_stmt else hodny_stmt
+		      | while expr do hodny_stmt
+		      | goto num
+		zly_stmt -> if expr then zly_stmt
+		      | if expr then hodny_stmt else zly_stmt
+		      | while expr do lzy_stmt
+	\end{verbatim}
+	\caption{Jednoznačná gramatika.}
+	\label{cod:Jednoznacna_gramatika}
+\end{kod}
+
+V ukázkách kódu \ref{cod:Prirozena_gramatika} a \ref{cod:Jednoznacna_gramatika} \uv{while} reprezentuje všechny příkazy, které mají na konci \uv{stmt} a \uv{goto} reprezentuje všechny příkazy, které na konci \uv{stmt} nemají.
+
+
+\subsubsection{Levá rekurze}
+
+Dalším problémem pro syntaktickou analýzu, pokud dělá analýzu shora dolů, je levá rekurze.
+
+\begin{definice}
+	Řekneme, že gramatika je \emph{levě rekurzivní}, pokud obsahuje neterminál \(A\), pro který platí, \(A \derives{+} A \alpha\), kde \(\alpha\) je nějaký řetězec symbolů. Tedy \(A\) se dá pomocí pravidel gramatiky převést na \(A\alpha\). Příklad odstranění levé rekurze je vidět na ukázce kódu \ref{cod:Odstraneni_rekurze}.
+\end{definice}
+
+\begin{kod}[h]
+	Původní gramatika
+	\begin{verbatim}
+		A -> Aa
+		A -> b
+	\end{verbatim}
+	
+	Nová gramatika
+	\begin{verbatim}
+		A -> bB
+		B -> aB
+		B -> {lambda}
+	\end{verbatim}
+	\caption{Odstranění levé rekurze.}
+	\label{cod:Odstraneni_rekurze}
+\end{kod}
+
+
+\subsubsection{Levá faktorizace}
+
+V gramatice se může objevit také tzv. levá faktorizace, což je situace, kdy máme k dispozici dvě pravidla, ale podle prvního neterminálu si nedokážeme vybrat, které použít. Řešení je jednoduché: Vytvořit nové pravidlo, které bude obsahovat začátek a teprve v místě kde se původní pravidla lišila bude další neterminál. Konkrétní řešení ukazuje kód \ref{cod:Odstraneni_faktorizace}.
+
+\begin{kod}[h]
+	Původní gramatika
+	\begin{verbatim}
+		A -> ab
+		A -> ac
+	\end{verbatim}
+	
+	Nová gramatika
+	\begin{verbatim}
+		A -> aB
+		B -> b
+		B -> c
+	\end{verbatim}
+	\caption{Odstranění levé faktorizace.}
+	\label{cod:Odstraneni_faktorizace}
+\end{kod}
+
+
+\subsubsection{Postup syntaktické analýzy}
+
+Syntaktická analýza může probíhat dvěma směry, a to buď shora dolů nebo zdola nahoru.
+
+\paragraph{Shora dolů} Při analýza shora dolů se analyzátor snaží určit použitá pravidla v derivačním stromě od jeho kořene (a z levé strany). Tento postup lze realizovat buď rekurzivním sestupem (obvyklejší) nebo pomocí LL automatu. Analýza shora dolů najde nejlevější derivaci.
+
+\paragraph{Zdola nahoru} Naopak analýza zdola nahoru se snaží hledat použitá pravidla zdola nahoru (a z levé strany), tedy derivační strom vytváří tak, že postupně listy spojuje do menších stromů a ty do větších až dostane celý derivační strom. Tento postup lze realizovat LR automatem. \TODO{Překontrolovat/doplnit.}
+
+\paragraph{Názvy gramatik} \TODO{Dopsat.}
+
+
+\subsubsection{FIRST a FOLLOW}
+
+\begin{definiceN}{FIRST}
+	Nechť \(\alpha\) je řetězec symbolů gramatiky, pak \(FIRST(\alpha)\) je množina terminálů, kterými začínají všechny řetězce derivované z \(\alpha\). Pokud \(\alpha\) může derivovat na \(\lambda\), pak je \(\lambda\) také ve \(FIRST(\alpha)\).
+\end{definiceN}
+
+\begin{definiceN}{FOLLOW}
+	Nechť \(A\) je neterminál, potom \(FOLLOW(A)\) definujeme jako množinu terminálů, které se mohou vyskytovat těsně za \(A\) v nějakém řetězci, který vznikl derivací z počátečního neterminálu gramatiky (\(S \derives{*} \alpha A a \beta\), pro nějaké řetězce symbolů \(\alpha\) a \(\beta\)). Pokud je \(A\) nejpravější symbol v nějakém přepisu, pak je ve \(FOLLOW(A)\) i \(\$\) -- speciální symbol.
+\end{definiceN}
+
+\begin{priklad}
+	Mějme řetězec \(ABC\), kde \(A\), \(B\) i \(C\) jsou neterminály a k tomuto řetězci jsme se dostali pravidlem \(S \to ABC\), které je jediné pro přepis \(S\). Množina \(FIRST(B)\) nám teď říká, jaké neterminály se můžou objevit na začátku řetězce, na který se přepíše neterminál \(B\). Dokonce ve \(FIRST(B)\) jsou i terminály se kterými řetězec v gramatice nemůže skončit. \(FOLLOW(B)\) nám říká, jaké terminály mohou následovat těsně za řetězcem na který se přepíše \(B\). Pokud je použité pravidlo jediné ve kterém se vyskytuje na pravé straně neterminál \(B\), pak \(FOLLOW(B) = FIRST(C)\) (až na \(\lambda\) a \(\$\)).
+\end{priklad}
+
+\TODO{Dopsat konstrukci FIRST a FOLLOW.}
+
+
+\subsubsection{Rekurzivní sestup}
+
+\TODO{Dopsat rekurzivní sestup.}
+
+
+\subsubsection{LL automat}
+
+\TODO{Dopsat (vč. LL(k) gramatiky).}
+
+
+\subsubsection{LR automat}
+
+\TODO{Dopsat.}
+
+
+
+
 \subsection{Syntaxí řízený překlad a atributové gramatiky.}
 \subsection{Reprezentace programu mezikódem.}
 \subsection{Překlad výrazů a programových struktur.}
